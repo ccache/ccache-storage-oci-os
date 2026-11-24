@@ -2,7 +2,15 @@ name: Build
 
 on:
   push:
+    branches:
+      - main
   pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -37,7 +45,7 @@ jobs:
     - name: Set up Go (minimum version)
       uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
       with:
-        go-version: '1.25.0'
+        go-version: '1.26'
 
     - name: Build all platforms
       run: make build-all
