@@ -2,7 +2,7 @@ module github.com/ccache/ccache-storage-oci-os
 
 go 1.26.0
 
-toolchain go1.26.10
+toolchain go1.27.4
 
 require (
 	github.com/ccache/ccache-go-storage-helper v0.1.0
